@@ -26,8 +26,9 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-	title: "runway",
-	description: "runway",
+	title: "Loops",
+	description:
+		"Loops is a holding company that builds and operates focused software businesses.",
 };
 
 export default async function RootLayout({
