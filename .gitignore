@@ -1,0 +1,62 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+build
+*.tsbuildinfo
+
+# Generated files
+apps/web/src/routeTree.gen.ts
+
+# Environment variables
+.env
+.env*.local
+
+# IDEs and editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Turbo
+.turbo
+.nx
+
+# Detached dev-server logs/pids (scripts/dev-up.sh)
+.dev-logs
+
+# Better-T-Stack
+.alchemy
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.tgz
+.cache
+tmp
+temp
+
+# Convex — the betterAuth component's generated code is created by `convex dev`
+# (and by CI's provisioning step), so it's not committed. The app's own
+# convex/_generated IS committed for local dev + web typecheck without a push.
+packages/backend/convex/betterAuth/_generated/

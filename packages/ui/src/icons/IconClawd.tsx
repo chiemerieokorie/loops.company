@@ -1,0 +1,32 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconClawd: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="clawd">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M20 4V8H24V12H20V20H18V16H16V20H14V16H10V20H8V16H6V20H4V12H0V8H4V4H20ZM16 6V8H18V6H16ZM6 8H8V6H6V8Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M20 4V8H24V12H20V20H18V16H16V20H14V16H10V20H8V16H6V20H4V12H0V8H4V4H20ZM16 6V8H18V6H16ZM6 8H8V6H6V8Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconClawd;

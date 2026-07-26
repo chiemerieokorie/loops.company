@@ -1,0 +1,70 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconCalenderRemove: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="calender-remove, date-remove">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M8.5 2.75C8.5 2.33579 8.16421 2 7.75 2C7.33579 2 7 2.33579 7 2.75V4H6.75C4.67893 4 3 5.67893 3 7.75V17.25C3 19.3211 4.67893 21 6.75 21H11.25C11.6642 21 12 20.6642 12 20.25C12 19.8358 11.6642 19.5 11.25 19.5H6.75C5.50736 19.5 4.5 18.4926 4.5 17.25V10H19.5V11.25C19.5 11.6642 19.8358 12 20.25 12C20.6642 12 21 11.6642 21 11.25V7.75C21 5.67893 19.3211 4 17.25 4H17V2.75C17 2.33579 16.6642 2 16.25 2C15.8358 2 15.5 2.33579 15.5 2.75V4H8.5V2.75Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M16.2803 15.2197C15.9874 14.9268 15.5126 14.9268 15.2197 15.2197C14.9268 15.5126 14.9268 15.9874 15.2197 16.2803L16.9393 18L15.2197 19.7197C14.9268 20.0126 14.9268 20.4874 15.2197 20.7803C15.5126 21.0732 15.9874 21.0732 16.2803 20.7803L18 19.0607L19.7197 20.7803C20.0126 21.0732 20.4874 21.0732 20.7803 20.7803C21.0732 20.4874 21.0732 20.0126 20.7803 19.7197L19.0607 18L20.7803 16.2803C21.0732 15.9874 21.0732 15.5126 20.7803 15.2197C20.4874 14.9268 20.0126 14.9268 19.7197 15.2197L18 16.9393L16.2803 15.2197Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M7.75 4.75H6.75C5.09315 4.75 3.75 6.09315 3.75 7.75V9.25H20.25V7.75C20.25 6.09315 18.9069 4.75 17.25 4.75H16.25H7.75Z"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M7.75 4.75V2.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M16.25 4.75V2.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M20.25 9.25V11.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M3.75 9.25V17.25C3.75 18.9069 5.09315 20.25 6.75 20.25H11.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M15.75 15.75L18 18M18 18L20.25 20.25M18 18L15.75 20.25M18 18L20.25 15.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconCalenderRemove;

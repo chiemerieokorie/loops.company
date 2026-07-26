@@ -1,0 +1,15 @@
+runway — Third-party notices
+=============================
+
+Document editor (apps/web/src/features/document/editor)
+-------------------------------------------------------
+
+Portions adapt code and patterns from **Novel** (https://github.com/steven-tey/novel),
+© Steven Tey and Novel contributors, licensed under the Apache License, Version 2.0.
+
+Adapted (from Tiptap v2 to v3, and wired to Convex instead of Vercel Blob):
+- Image upload flow — editor/extensions/image.ts (image node + `/image` slash
+  command) and packages/backend/convex/files.ts (Convex file storage upload).
+- Syntax-highlighted code blocks — editor/extensions/code-block.ts (lowlight).
+
+Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0

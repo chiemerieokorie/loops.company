@@ -1,0 +1,433 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+/* shadcn/typeset — reading rhythm for rendered markdown/HTML inside a `.typeset`
+   container. Imported after Tailwind so its `@layer components` rules land in the
+   right layer; it reads the theme tokens defined below. See typeset.css. */
+@import "./typeset.css";
+
+/* Tailwind Typography — enables `prose` / `prose-sm`, used by the document editor
+   surface (features/document/editor, scoped via `.runway-doc-editor`). */
+@plugin "@tailwindcss/typography";
+@source "../../../apps/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	/* surfaces — cool slate, near-white (never pure #FFF). Stripe/Linear energy. */
+	--background: oklch(0.992 0.003 256); /* cool near-white */
+	--foreground: oklch(0.2 0.03 256); /* slate-navy ink (Stripe Downriver) */
+	--card: oklch(0.992 0.003 256);
+	--card-foreground: oklch(0.2 0.03 256);
+	--popover: oklch(0.992 0.003 256);
+	--popover-foreground: oklch(0.2 0.03 256);
+
+	/* primary — indigo (Stripe/Linear), white text passes AA */
+	--primary: oklch(0.51 0.19 272);
+	--primary-foreground: oklch(0.99 0.005 272);
+
+	--secondary: oklch(0.965 0.007 256);
+	--secondary-foreground: oklch(0.24 0.025 256);
+
+	--muted: oklch(
+		0.974 0.006 256
+	); /* card fill — light cool-slate grey (#f4f7fb) */
+	--muted-foreground: oklch(0.54 0.018 256); /* AA 4.5:1 on slate cards */
+
+	--accent: oklch(0.965 0.007 256); /* hover */
+	--accent-foreground: oklch(0.24 0.025 256);
+
+	--destructive: oklch(0.577 0.245 27.325); /* red500 */
+	--destructive-foreground: oklch(1 0 0);
+	--success: oklch(0.525 0.128 163); /* emerald — AA 4.5:1 on light */
+	--success-foreground: oklch(1 0 0);
+
+	--border: oklch(0.912 0.008 256); /* slate divider */
+	--border-subtle: oklch(0.945 0.006 256); /* cards/inputs/gridlines */
+	--input: oklch(0.912 0.008 256);
+	--ring: oklch(0.55 0.19 272); /* indigo focus */
+
+	/* accent — indigo, the single brand accent (Stripe/Linear "iris") */
+	--brand: oklch(0.9177 0.1817 127.82); /* lime — one hero CTA only */
+	--brand-foreground: oklch(0.16 0 0);
+	--accent-iris: oklch(0.58 0.2 272); /* vivid indigo — fills/dots/bars */
+	--accent-iris-strong: oklch(
+		0.5 0.19 272
+	); /* deep indigo — AA 4.5:1 text/link */
+	--surface-subtle: oklch(0.985 0.004 256); /* recessed near-white */
+	--text-subtle: oklch(0.62 0.015 256); /* readable tertiary (3:1) */
+	--invalid: oklch(0.6927 0.1693 22.53); /* red400 */
+
+	/* Folder accent palette — a deliberate, CONTAINED exception to the indigo+slate
+	   system (docs/ui/design-system.md): a named, tokenized set so users can color-
+	   code folders without raw hex. Tuned for AA legibility on the muted card fill.
+	   Keep these confined to the --folder-* namespace; never reuse as general tokens. */
+	--folder-indigo: oklch(0.55 0.19 272);
+	--folder-teal: oklch(0.6 0.12 195);
+	--folder-sky: oklch(0.62 0.15 240);
+	--folder-violet: oklch(0.55 0.2 300);
+	--folder-amber: oklch(0.7 0.15 75);
+	--folder-rose: oklch(0.62 0.2 15);
+	--folder-emerald: oklch(0.6 0.13 163);
+	--folder-fuchsia: oklch(0.6 0.22 330);
+
+	--chart-1: oklch(0.87 0 0); /* teal */
+	--chart-2: oklch(0.556 0 0); /* blue */
+	--chart-3: oklch(0.439 0 0); /* purple */
+	--chart-4: oklch(0.371 0 0); /* orange */
+	--chart-5: oklch(0.269 0 0); /* yellow */
+
+	--radius: 0.625rem; /* 8px */
+
+	--shadow-bubble: 0 1px 0 0 oklch(0.9489 0.0067 261.79); /* grey200 hairline */
+	/* paper card — crisp layered "shadow as border": a 1px ink ring cuts the
+	   card from the bg, then two tight short drops for depth (no diffuse haze). */
+	--shadow-soft:
+		0 0 0 1px rgba(50, 59, 73, 0.08), 0 1px 2px -1px rgba(50, 59, 73, 0.12),
+		0 3px 6px -1px rgba(50, 59, 73, 0.06);
+
+	--sidebar: oklch(0.985 0 0);
+	--sidebar-foreground: oklch(0.145 0 0);
+	--sidebar-primary: oklch(0.205 0 0);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.97 0 0);
+	--sidebar-accent-foreground: oklch(0.205 0 0);
+	--sidebar-border: oklch(0.922 0 0);
+	--sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+	--background: oklch(0.165 0.012 256); /* slate-900 */
+	--foreground: oklch(0.985 0.002 256);
+	--card: oklch(0.215 0.014 256); /* slate-800 */
+	--card-foreground: oklch(0.985 0.002 256);
+	--popover: oklch(0.215 0.014 256);
+	--popover-foreground: oklch(0.985 0.002 256);
+
+	--primary: oklch(0.54 0.19 272); /* indigo */
+	--primary-foreground: oklch(0.99 0.005 272);
+
+	--secondary: oklch(0.275 0.014 256);
+	--secondary-foreground: oklch(0.985 0.002 256);
+
+	--muted: oklch(0.275 0.014 256);
+	--muted-foreground: oklch(0.715 0.013 256);
+
+	--accent: oklch(0.275 0.014 256);
+	--accent-foreground: oklch(0.985 0.002 256);
+
+	--destructive: oklch(0.704 0.191 22.216);
+	--destructive-foreground: oklch(0.18 0.02 287);
+	--success: oklch(0.765 0.149 163); /* emerald400 — positive trend (dark) */
+	--success-foreground: oklch(0.18 0.02 287);
+
+	--border: oklch(1 0 0 / 10%);
+	--border-subtle: oklch(1 0 0 / 6%);
+	--input: oklch(1 0 0 / 15%);
+	--ring: oklch(0.62 0.17 272); /* indigo focus */
+
+	--brand: oklch(0.9177 0.1817 127.82);
+	--brand-foreground: oklch(0.16 0 0);
+	--accent-iris: oklch(0.72 0.16 272); /* indigo — bright on dark */
+	--accent-iris-strong: oklch(0.72 0.16 272);
+	--surface-subtle: oklch(0.2851 0.0291 287.26);
+	--text-subtle: oklch(0.5909 0.0187 259.42);
+	--invalid: oklch(0.6927 0.1693 22.53);
+
+	/* Folder accent palette (dark) — lightened so the swatches read on the dark card. */
+	--folder-indigo: oklch(0.72 0.16 272);
+	--folder-teal: oklch(0.74 0.11 195);
+	--folder-sky: oklch(0.74 0.13 240);
+	--folder-violet: oklch(0.72 0.17 300);
+	--folder-amber: oklch(0.82 0.14 75);
+	--folder-rose: oklch(0.74 0.17 15);
+	--folder-emerald: oklch(0.74 0.13 163);
+	--folder-fuchsia: oklch(0.74 0.19 330);
+
+	--chart-1: oklch(0.87 0 0);
+	--chart-2: oklch(0.556 0 0);
+	--chart-3: oklch(0.439 0 0);
+	--chart-4: oklch(0.371 0 0);
+	--chart-5: oklch(0.269 0 0);
+
+	--shadow-bubble: 0 1px 0 0 oklch(1 0 0 / 9%);
+	/* dark: a single crisp white ring + one short drop — layered drops are
+	   invisible on dark, so the ring carries the edge definition. */
+	--shadow-soft:
+		0 0 0 1px rgba(255, 255, 255, 0.09), 0 1px 3px rgba(0, 0, 0, 0.5);
+
+	--sidebar: oklch(0.205 0 0);
+	--sidebar-foreground: oklch(0.985 0 0);
+	--sidebar-primary: oklch(0.488 0.243 264.376);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.269 0 0);
+	--sidebar-accent-foreground: oklch(0.985 0 0);
+	--sidebar-border: oklch(1 0 0 / 10%);
+	--sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar: var(--sidebar);
+	--color-chart-5: var(--chart-5);
+	--color-chart-4: var(--chart-4);
+	--color-chart-3: var(--chart-3);
+	--color-chart-2: var(--chart-2);
+	--color-chart-1: var(--chart-1);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-border-subtle: var(--border-subtle);
+	--color-destructive: var(--destructive);
+	--color-success: var(--success);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--color-brand: var(--brand);
+	--color-brand-foreground: var(--brand-foreground);
+	--color-accent-iris: var(--accent-iris);
+	--color-accent-iris-strong: var(--accent-iris-strong);
+	--color-surface-subtle: var(--surface-subtle);
+	--color-text-subtle: var(--text-subtle);
+	--color-invalid: var(--invalid);
+
+	--color-folder-indigo: var(--folder-indigo);
+	--color-folder-teal: var(--folder-teal);
+	--color-folder-sky: var(--folder-sky);
+	--color-folder-violet: var(--folder-violet);
+	--color-folder-amber: var(--folder-amber);
+	--color-folder-rose: var(--folder-rose);
+	--color-folder-emerald: var(--folder-emerald);
+	--color-folder-fuchsia: var(--folder-fuchsia);
+	--shadow-bubble: var(--shadow-bubble);
+	--shadow-soft: var(--shadow-soft);
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--radius-2xl: calc(var(--radius) + 8px);
+	--radius-3xl: calc(var(--radius) + 12px);
+	--radius-4xl: calc(var(--radius) + 16px);
+	--font-heading: var(--font-sans);
+
+	/* Motion — stronger custom curves than the CSS built-ins (Emil Kowalski's set).
+	   Generate `ease-out-strong` / `ease-in-out-strong` / `ease-drawer` utilities +
+	   the matching CSS vars for use in inline transitions and the `motion` package. */
+	--ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+	--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		font-size: 14px;
+		line-height: 18px;
+		letter-spacing: -0.03em;
+		@apply font-sans bg-background text-foreground;
+	}
+	html {
+		@apply font-sans;
+	}
+
+	/* Thin, unobtrusive scrollbars themed to the border token. */
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--border);
+		border-radius: 5px;
+	}
+	* {
+		scrollbar-color: var(--border) transparent;
+		scrollbar-width: thin;
+	}
+
+	/* Honor the OS "reduce motion" preference: near-instant transitions/animations
+	   app-wide (the accessible baseline). Key surfaces still keep an opacity-only
+	   variant via the `motion` package's useReducedMotion where a fade aids clarity. */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		::before,
+		::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}
+
+@layer components {
+	.text-h1 {
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 32px;
+		letter-spacing: -0.01em;
+	}
+	.text-h2 {
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 28px;
+		letter-spacing: -0.01em;
+	}
+	.text-p16 {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+	}
+	.text-p16-medium {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 24px;
+	}
+	.text-p14 {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 18px;
+	}
+	.text-p14-medium {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 18px;
+	}
+	.text-p13 {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 14px;
+	}
+	.text-p13-medium {
+		font-size: 13px;
+		font-weight: 500;
+		line-height: 14px;
+	}
+	.text-p12 {
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 14px;
+	}
+	.text-code {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		font-weight: 400;
+		font-variant-numeric: tabular-nums;
+		line-height: 18px;
+	}
+	.nums {
+		font-variant-numeric: tabular-nums;
+	}
+	.btn-brand {
+		padding: 9px 14px;
+		font-size: 13px;
+		font-weight: 700;
+		line-height: 14px;
+		color: var(--brand-foreground);
+		background: var(--brand);
+		border-radius: 6px;
+		transition: filter 120ms ease;
+	}
+	.btn-brand:hover {
+		filter: brightness(0.96);
+	}
+	.btn-brand:focus-visible {
+		outline: 2px solid var(--ring);
+		outline-offset: 2px;
+	}
+
+	/* ── Typeset (shadcn/typeset) ───────────────────────────────────────────────
+	   The engine lives in typeset.css; Runway's project-specific tuning lives here
+	   next to the rest of the tokens. Fonts inherit the app's Geist defaults via
+	   `--typeset-font-body: inherit` / `--font-heading`, so presets only set rhythm.
+
+	   Design-system alignment: typeset ships headings at weight 600, but Runway caps
+	   at medium (500), headings included. Same specificity as the engine's rule
+	   ((0,1,0), same `components` layer), so this later source order wins. Inline
+	   `**strong**` stays at typeset's 600 — that's content emphasis, not chrome. */
+	.typeset :where(h1, h2, h3, h4) {
+		font-weight: 500;
+	}
+
+	/* Docs preset — the reading surface (shared documents, articles). A touch
+	   larger and roomier than the app's dense-UI baseline. */
+	.typeset-docs {
+		--typeset-size: 15px;
+		--typeset-leading: 1.7;
+		--typeset-flow: 1.4em;
+	}
+
+	/* Chat preset — assistant messages in a bubble. Tighter rhythm; size pinned to
+	   the app's `text-sm` baseline (14px) so prose sits with the surrounding UI.
+	   Set here rather than via a `text-sm` utility because Tailwind's utilities
+	   layer would otherwise override typeset's own size/leading. */
+	.typeset-chat {
+		--typeset-size: 0.875rem;
+		--typeset-leading: 1.6;
+		--typeset-flow: 1em;
+	}
+
+	/* Task-list checkboxes rendered inside a typeset surface (e.g. the read-only
+	   shared document) tint to the brand, matching the live editor. */
+	.typeset ul[data-type="taskList"] input[type="checkbox"] {
+		accent-color: var(--primary);
+	}
+}
+
+@layer base {
+	/* Document editor (features/document/editor). Scoped to the `.runway-doc-editor`
+	   class set on the editable in editor-config.ts. */
+
+	/* Placeholder ghost text: the Tiptap Placeholder extension tags the current
+	   empty node with `.is-empty` + a `data-placeholder` attribute; render it as a
+	   muted, non-interactive prompt. */
+	.runway-doc-editor .is-empty::before {
+		float: left;
+		height: 0;
+		color: var(--muted-foreground);
+		pointer-events: none;
+		content: attr(data-placeholder);
+	}
+
+	/* Task-list checkboxes tint to the brand instead of the browser default. */
+	.runway-doc-editor ul[data-type="taskList"] input[type="checkbox"] {
+		accent-color: var(--primary);
+	}
+
+	/* Headings sit at medium weight (the design system's "no bold, headings
+	   included" rule), and tighten their tracking so they read as structure, not
+	   shouting. `prose` otherwise renders them bold. */
+	.runway-doc-editor :is(h1, h2, h3, h4) {
+		font-weight: 500;
+		letter-spacing: -0.01em;
+	}
+
+	/* A comfortable writing measure + rhythm on the editable itself. */
+	.runway-doc-editor {
+		font-size: 0.95rem;
+		line-height: 1.7;
+	}
+}

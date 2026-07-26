@@ -1,0 +1,54 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconEmojiSmiley: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="emoji-smiley, face, smile">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM9.5 10.5C10.3284 10.5 11 9.82843 11 9C11 8.17157 10.3284 7.5 9.5 7.5C8.67157 7.5 8 8.17157 8 9C8 9.82843 8.67157 10.5 9.5 10.5ZM16 9C16 9.82843 15.3284 10.5 14.5 10.5C13.6716 10.5 13 9.82843 13 9C13 8.17157 13.6716 7.5 14.5 7.5C15.3284 7.5 16 8.17157 16 9ZM6.25 12C6.25 11.5858 5.91421 11.25 5.5 11.25C5.08579 11.25 4.75 11.5858 4.75 12C4.75 16.0041 7.99594 19.25 12 19.25C16.0041 19.25 19.25 16.0041 19.25 12C19.25 11.5858 18.9142 11.25 18.5 11.25C18.0858 11.25 17.75 11.5858 17.75 12C17.75 15.1756 15.1756 17.75 12 17.75C8.82436 17.75 6.25 15.1756 6.25 12Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M21.25 12C21.25 17.1086 17.1086 21.25 12 21.25C6.89137 21.25 2.75 17.1086 2.75 12C2.75 6.89137 6.89137 2.75 12 2.75C17.1086 2.75 21.25 6.89137 21.25 12Z"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M17.5 12C17.5 15.0376 15.0376 17.5 12 17.5C8.96243 17.5 6.5 15.0376 6.5 12"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M10.25 9C10.25 9.41421 9.91421 9.75 9.5 9.75C9.08579 9.75 8.75 9.41421 8.75 9C8.75 8.58579 9.08579 8.25 9.5 8.25C9.91421 8.25 10.25 8.58579 10.25 9Z"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M15.25 9C15.25 9.41421 14.9142 9.75 14.5 9.75C14.0858 9.75 13.75 9.41421 13.75 9C13.75 8.58579 14.0858 8.25 14.5 8.25C14.9142 8.25 15.25 8.58579 15.25 9Z"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconEmojiSmiley;

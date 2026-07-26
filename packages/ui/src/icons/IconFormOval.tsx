@@ -1,0 +1,32 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconFormOval: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="form-oval">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M12 3.75C14.8228 3.75 17.4158 4.62175 19.3242 6.07812C21.2335 7.53524 22.5 9.62009 22.5 12C22.5 14.3799 21.2335 16.4648 19.3242 17.9219C17.4158 19.3783 14.8228 20.25 12 20.25C9.17718 20.25 6.58423 19.3783 4.67578 17.9219C2.76645 16.4648 1.5 14.3799 1.5 12C1.5 9.62009 2.76645 7.53524 4.67578 6.07812C6.58423 4.62175 9.17718 3.75 12 3.75Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<ellipse
+					cx="11.75"
+					cy="12"
+					rx="9.5"
+					ry="7.5"
+					stroke="currentColor"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconFormOval;

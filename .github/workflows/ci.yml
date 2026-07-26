@@ -1,0 +1,50 @@
+# CI gate — runs on every push to main and every PR. Provisions a throwaway local
+# Convex backend (so the app AND the betterAuth component get their _generated code,
+# and a REAL schema/function push validates indexes + validators the way convex-test
+# can't), then typechecks and tests the whole graph.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # `packages: read` lets the built-in GITHUB_TOKEN pull the private
+    # @chiemerieokorie/* loops toolkit — provided this repo has been granted read
+    # access to those packages (Package settings → Manage Actions access → add
+    # chiemerieokorie/runway). If you prefer a PAT instead, set a NODE_AUTH_TOKEN
+    # repo secret (read:packages) and it takes precedence below.
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      # Authenticate to GitHub Packages for the private @chiemerieokorie/* loops
+      # toolkit (see .npmrc). Prefer a NODE_AUTH_TOKEN secret (PAT, read:packages) if
+      # set; otherwise fall back to the workflow's built-in GITHUB_TOKEN.
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN || secrets.GITHUB_TOKEN }}
+      # Anonymous LOCAL Convex deployment — in a non-interactive shell `convex dev
+      # --once` auto-creates one WITHOUT a login or deploy key (the `--configure`
+      # flags would instead trigger an interactive login prompt and hang). It codegens
+      # convex/_generated and convex/betterAuth/_generated and pushes the schema, so a
+      # bad index/validator fails here rather than in production. Runway declares no
+      # required deployment env vars, so this single push succeeds.
+      - name: Provision local Convex backend (codegen + push)
+        run: pnpm --filter @runway/backend exec convex dev --once
+      - name: Typecheck + tests
+        run: pnpm turbo run check-types test

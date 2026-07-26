@@ -1,0 +1,28 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconTwitter: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="x">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M17.5652 3.25H20.5319L14.0505 10.6628L21.6753 20.75H15.7052L11.0291 14.6322L5.67867 20.75H2.71017L9.64264 12.8212L2.32812 3.25H8.44986L12.6766 8.84192L17.5652 3.25ZM16.524 18.9731H18.1679L7.55662 4.93359H5.79256L16.524 18.9731Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M17.5652 3.25H20.5319L14.0505 10.6628L21.6753 20.75H15.7052L11.0291 14.6322L5.67867 20.75H2.71017L9.64264 12.8212L2.32812 3.25H8.44986L12.6766 8.84192L17.5652 3.25ZM16.524 18.9731H18.1679L7.55662 4.93359H5.79256L16.524 18.9731Z"
+					fill="currentColor"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconTwitter;

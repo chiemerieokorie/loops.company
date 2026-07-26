@@ -1,0 +1,44 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconPieChart1: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="pie-chart-1, graph, chart, statistics">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M21.6542 14.6168C21.8797 13.7827 22 12.9054 22 12C22 6.72945 17.9225 2.41124 12.75 2.02771V11.4696L21.6542 14.6168Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M21.1543 16.031L11.7501 12.7071C11.4504 12.6012 11.25 12.3179 11.25 12V2.02771C6.07745 2.41124 2 6.72945 2 12C2 17.5229 6.47715 22 12 22C16.0886 22 19.6041 19.5463 21.1543 16.031Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M12 2.75V12L20.7237 15.0833"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<circle
+					cx="12"
+					cy="12"
+					r="9.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconPieChart1;

@@ -1,0 +1,47 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconItalic: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="italic">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M9 3.75C9 3.33579 9.33579 3 9.75 3H19.25C19.6642 3 20 3.33579 20 3.75C20 4.16421 19.6642 4.5 19.25 4.5H15.0564L10.511 19.5H14.2601C14.6743 19.5 15.0101 19.8358 15.0101 20.25C15.0101 20.6642 14.6743 21 14.2601 21H4.75C4.33579 21 4 20.6642 4 20.25C4 19.8358 4.33579 19.5 4.75 19.5H8.94359L13.489 4.5H9.75C9.33579 4.5 9 4.16421 9 3.75Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M9.75 3.75L14.5 3.75L19.25 3.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M14.5 3.75L9.5 20.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M4.75 20.25H9.5L14.2601 20.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconItalic;

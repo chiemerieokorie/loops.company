@@ -1,0 +1,49 @@
+# Deploys the @runway/jobs Trigger.dev project to the self-hosted instance on every
+# push to main that touches the package. The build extensions in trigger.config.ts
+# sync the R2 / docling / callback-secret env vars from this job's env to the
+# Trigger.dev project at deploy time (syncEnv: true).
+name: Deploy jobs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/jobs/**"
+      - ".github/workflows/deploy-jobs.yml"
+
+concurrency:
+  group: deploy-jobs
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Deploy Trigger.dev tasks
+        run: pnpm --filter @runway/jobs exec trigger.dev deploy
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          # Auth to the self-hosted instance (PAT from its dashboard).
+          TRIGGER_ACCESS_TOKEN: ${{ secrets.TRIGGER_ACCESS_TOKEN }}
+          TRIGGER_API_URL: https://trigger.loops.company
+          # Synced onto the Trigger.dev project by the build extensions:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          DOCLING_SERVE_URL: ${{ secrets.DOCLING_SERVE_URL }}
+          DOCLING_SERVE_API_KEY: ${{ secrets.DOCLING_SERVE_API_KEY }}
+          TRIGGER_CALLBACK_SECRET: ${{ secrets.TRIGGER_CALLBACK_SECRET }}

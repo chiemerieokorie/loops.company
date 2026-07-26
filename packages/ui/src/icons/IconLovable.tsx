@@ -1,0 +1,32 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconLovable: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="lovable">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M8.5509 2.19C11.6166 2.19 14.1018 4.68178 14.1018 7.75553V9.87078H15.9491C19.0149 9.87078 21.5 12.3626 21.5 15.4363C21.5 18.5101 19.0149 21.0018 15.9491 21.0018H3V7.75553C3 4.68178 5.48522 2.19 8.5509 2.19Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M8.5509 2.19C11.6166 2.19 14.1018 4.68178 14.1018 7.75553V9.87078H15.9491C19.0149 9.87078 21.5 12.3626 21.5 15.4363C21.5 18.5101 19.0149 21.0018 15.9491 21.0018H3V7.75553C3 4.68178 5.48522 2.19 8.5509 2.19Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconLovable;

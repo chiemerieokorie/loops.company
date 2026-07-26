@@ -1,0 +1,35 @@
+{
+  "name": "@runway/jobs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Trigger.dev background jobs for Runway. Consumes loops.company's shared toolkit (@chiemerieokorie/trigger-kit + @chiemerieokorie/docling). Deployed separately to the self-hosted Trigger.dev instance.",
+  "exports": {
+    ".": {
+      "types": "./src/trigger/index.ts",
+      "default": "./src/trigger/index.ts"
+    },
+    "./payloads": {
+      "types": "./src/payloads.ts",
+      "default": "./src/payloads.ts"
+    }
+  },
+  "scripts": {
+    "trigger:dev": "trigger.dev dev",
+    "trigger:deploy": "trigger.dev deploy",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chiemerieokorie/docling": "^0.3.0",
+    "@chiemerieokorie/trigger-kit": "^0.2.0",
+    "@trigger.dev/sdk": "^4.4.5",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@runway/config": "workspace:*",
+    "@trigger.dev/build": "^4.4.5",
+    "@types/node": "^22.15.0",
+    "trigger.dev": "^4.4.5",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,68 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconPrompt: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="prompt, scan-text">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M2 7.75C2 5.67893 3.67893 4 5.75 4H6.25C6.66421 4 7 4.33579 7 4.75C7 5.16421 6.66421 5.5 6.25 5.5H5.75C4.50736 5.5 3.5 6.50736 3.5 7.75V8.25C3.5 8.66421 3.16421 9 2.75 9C2.33579 9 2 8.66421 2 8.25V7.75ZM17 4.75C17 4.33579 17.3358 4 17.75 4H18.25C20.3211 4 22 5.67893 22 7.75V8.25C22 8.66421 21.6642 9 21.25 9C20.8358 9 20.5 8.66421 20.5 8.25V7.75C20.5 6.50736 19.4926 5.5 18.25 5.5H17.75C17.3358 5.5 17 5.16421 17 4.75ZM7 9.75C7 9.33579 7.33579 9 7.75 9H16.25C16.6642 9 17 9.33579 17 9.75C17 10.1642 16.6642 10.5 16.25 10.5H7.75C7.33579 10.5 7 10.1642 7 9.75ZM7 14.25C7 13.8358 7.33579 13.5 7.75 13.5H14.25C14.6642 13.5 15 13.8358 15 14.25C15 14.6642 14.6642 15 14.25 15H7.75C7.33579 15 7 14.6642 7 14.25ZM2.75 15C3.16421 15 3.5 15.3358 3.5 15.75V16.25C3.5 17.4926 4.50736 18.5 5.75 18.5H6.25C6.66421 18.5 7 18.8358 7 19.25C7 19.6642 6.66421 20 6.25 20H5.75C3.67893 20 2 18.3211 2 16.25V15.75C2 15.3358 2.33579 15 2.75 15ZM21.25 15C21.6642 15 22 15.3358 22 15.75V16.25C22 18.3211 20.3211 20 18.25 20H17.75C17.3358 20 17 19.6642 17 19.25C17 18.8358 17.3358 18.5 17.75 18.5H18.25C19.4926 18.5 20.5 17.4926 20.5 16.25V15.75C20.5 15.3358 20.8358 15 21.25 15Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M6.25 4.75H5.75C4.09315 4.75 2.75 6.09315 2.75 7.75V8.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M17.75 4.75H18.25C19.9069 4.75 21.25 6.09315 21.25 7.75V8.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M21.25 15.75V16.25C21.25 17.9069 19.9069 19.25 18.25 19.25H17.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M6.25 19.25H5.75C4.09315 19.25 2.75 17.9069 2.75 16.25V15.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M7.75 9.75H16.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M7.75 14.25H14.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconPrompt;

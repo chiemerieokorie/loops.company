@@ -1,0 +1,28 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconTumblr: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="tumblr">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M17.6592 22H14.3188C11.3109 22 9.0691 20.4524 9.0691 16.7503V10.8215H6.33594V7.61109C9.34383 6.82988 10.6019 4.24148 10.7467 2H13.8701V7.09052H17.5141V10.8215H13.8701V15.9842C13.8701 17.5315 14.6513 18.0665 15.8946 18.0665H17.6592V22Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M17.6592 22H14.3188C11.3109 22 9.0691 20.4524 9.0691 16.7503V10.8215H6.33594V7.61109C9.34383 6.82988 10.6019 4.24148 10.7467 2H13.8701V7.09052H17.5141V10.8215H13.8701V15.9842C13.8701 17.5315 14.6513 18.0665 15.8946 18.0665H17.6592V22Z"
+					fill="currentColor"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconTumblr;

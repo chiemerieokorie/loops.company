@@ -1,0 +1,33 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconMathGreaterThan: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="math-greater-than, >">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M5.05846 6.45977C5.21886 6.07787 5.65848 5.89831 6.04037 6.05871L18.5404 11.3087C18.8188 11.4257 19 11.6982 19 12.0002C19 12.3022 18.8188 12.5747 18.5404 12.6917L6.04037 17.9417C5.65848 18.1021 5.21886 17.9225 5.05846 17.5406C4.89807 17.1587 5.07763 16.7191 5.45953 16.5587L16.3131 12.0002L5.45953 7.44168C5.07763 7.28128 4.89807 6.84167 5.05846 6.45977Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M5.75 6.75L18.25 12L5.75 17.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconMathGreaterThan;

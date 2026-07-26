@@ -1,0 +1,32 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconCheckmark1: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="checkmark-1">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M19.4299 4.20121C20.0092 4.57669 20.1744 5.3507 19.799 5.93002L11.049 19.43C10.835 19.7601 10.4782 19.9702 10.0858 19.9972C9.69333 20.0242 9.31109 19.8649 9.05399 19.5672L4.30399 14.0672C3.85276 13.5447 3.91052 12.7554 4.433 12.3041C4.95547 11.8529 5.74482 11.9106 6.19605 12.4331L9.85717 16.6723L17.7011 4.57028C18.0766 3.99096 18.8506 3.82573 19.4299 4.20121Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M4.75 12.7768L10 19.25L19.25 4.75"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconCheckmark1;

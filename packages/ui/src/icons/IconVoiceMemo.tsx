@@ -1,0 +1,93 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconVoiceMemo: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="voice-memo, voice-control">
+		{variant === "filled" ? (
+			<>
+				<path
+					d="M16.25 2.25C17.7688 2.25 19 3.48122 19 5C19 6.2584 18.1537 7.31578 17 7.64258V16.3564C18.1539 16.6832 19 17.7415 19 19C19 20.5188 17.7688 21.75 16.25 21.75C14.7312 21.75 13.5 20.5188 13.5 19C13.5 17.7415 14.3461 16.6832 15.5 16.3564V7.64258C14.3463 7.31578 13.5 6.2584 13.5 5C13.5 3.48122 14.7312 2.25 16.25 2.25Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M7.75 3C8.16421 3 8.5 3.33579 8.5 3.75V20.25C8.5 20.6642 8.16421 21 7.75 21C7.33579 21 7 20.6642 7 20.25V3.75C7 3.33579 7.33579 3 7.75 3Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M3.75 9C4.16421 9 4.5 9.33579 4.5 9.75V14.25C4.5 14.6642 4.16421 15 3.75 15C3.33579 15 3 14.6642 3 14.25V9.75C3 9.33579 3.33579 9 3.75 9Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M12 9C12.4142 9 12.75 9.33579 12.75 9.75V14.25C12.75 14.6642 12.4142 15 12 15C11.5858 15 11.25 14.6642 11.25 14.25V9.75C11.25 9.33579 11.5858 9 12 9Z"
+					fill="currentColor"
+				/>
+				<path
+					d="M20.25 10C20.6642 10 21 10.3358 21 10.75V13.25C21 13.6642 20.6642 14 20.25 14C19.8358 14 19.5 13.6642 19.5 13.25V10.75C19.5 10.3358 19.8358 10 20.25 10Z"
+					fill="currentColor"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M7.75 3.75V20.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M3.75 9.75V14.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M12 9.75V14.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M16.25 7V17"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<path
+					d="M20.25 10.75V13.25"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<circle
+					cx="16.25"
+					cy="5"
+					r="2"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+				<circle
+					cx="16.25"
+					cy="19"
+					r="2"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconVoiceMemo;

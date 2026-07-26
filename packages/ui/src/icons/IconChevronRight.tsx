@@ -1,0 +1,33 @@
+import type { FC } from "react";
+
+import { CentralIconBase, type CentralIconProps } from "./CentralIconBase";
+
+export const IconChevronRight: FC<CentralIconProps> = ({
+	variant = "outlined",
+	...props
+}) => (
+	<CentralIconBase {...props} ariaLabel="chevron-right">
+		{variant === "filled" ? (
+			<>
+				<path
+					clipRule="evenodd"
+					d="M8.46967 3.46967C8.76256 3.17678 9.23744 3.17678 9.53033 3.46967L15.409 9.34833C16.8735 10.8128 16.8735 13.1872 15.409 14.6516L9.53033 20.5303C9.23744 20.8232 8.76256 20.8232 8.46967 20.5303C8.17678 20.2374 8.17678 19.7626 8.46967 19.4697L14.3484 13.591C15.227 12.7123 15.227 11.2877 14.3483 10.409L8.46967 4.53033C8.17678 4.23744 8.17678 3.76256 8.46967 3.46967Z"
+					fill="currentColor"
+					fillRule="evenodd"
+				/>
+			</>
+		) : (
+			<>
+				<path
+					d="M9 4L14.8787 9.87866C16.0503 11.0502 16.0503 12.9497 14.8787 14.1213L9 20"
+					stroke="currentColor"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="1.5"
+				/>
+			</>
+		)}
+	</CentralIconBase>
+);
+
+export default IconChevronRight;
