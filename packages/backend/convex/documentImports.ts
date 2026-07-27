@@ -1,10 +1,10 @@
-import { rawRef } from "@chiemerieokorie/trigger-kit/convex";
 import { ConvexError, v } from "convex/values";
 
 import { internal } from "./_generated/api";
 import { internalMutation, internalQuery } from "./_generated/server";
 import { assertMember } from "./lib/access";
 import { authedMutation, authedQuery } from "./lib/functions";
+import { rawRef } from "./lib/rawRef";
 
 // External document imports processed by the `parse-document` Trigger.dev task
 // (docling → R2). Flow: a member `request`s an import → a row is created `pending`

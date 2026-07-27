@@ -1,10 +1,10 @@
-import { rawRef } from "@chiemerieokorie/trigger-kit/convex";
 import { ConvexError, v } from "convex/values";
 
 import { internalMutation, internalQuery } from "./_generated/server";
 import { assertWithinLimit } from "./entitlement";
 import { assertMember } from "./lib/access";
 import { authedMutation, authedQuery } from "./lib/functions";
+import { rawRef } from "./lib/rawRef";
 
 // The `notes` example — a minimal workspace-scoped CRUD demonstrating the RLS
 // pattern (schema.ts + lib/functions) plus the soft-delete/trash pattern. Every call

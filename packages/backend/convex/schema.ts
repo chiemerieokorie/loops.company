@@ -1,10 +1,9 @@
-// The Convex `rawRef` validator is loops.company's shared adapter for an R2 raw-blob
-// pointer (@chiemerieokorie/trigger-kit) — a Trigger.dev task uploads the bytes to R2
-// and hands this small pointer back to persist on the owning row. Single source of
-// truth for the shape, so schema + task can't drift.
-import { rawRef } from "@chiemerieokorie/trigger-kit/convex";
+// The `rawRef` validator describes an R2 raw-blob pointer — a Trigger.dev task
+// uploads the bytes to R2 and hands this small pointer back to persist on the owning
+// row. Single source of truth for the shape, so schema + task can't drift.
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
+import { rawRef } from "./lib/rawRef";
 
 // The app's control-plane tables. The Better Auth component owns auth/orgs in its
 // own tables; `memberships` is the app-side projection the access helpers scope

@@ -1,15 +1,15 @@
 "use node";
 
-import type {
-	NoteExportPayload,
-	ParseDocumentPayload,
-} from "@runway/jobs/payloads";
 import { tasks } from "@trigger.dev/sdk";
 import { v } from "convex/values";
 
 import { internal } from "./_generated/api";
 import { internalAction } from "./_generated/server";
 import { authedAction } from "./lib/functions";
+import type {
+	NoteExportPayload,
+	ParseDocumentPayload,
+} from "./lib/jobPayloads";
 
 // The Convex → Trigger.dev bridge. These actions run in the Node runtime ("use
 // node") because `tasks.trigger` (the @trigger.dev/sdk) needs Node. They authorize
