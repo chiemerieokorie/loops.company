@@ -3,7 +3,7 @@
 import type {
 	NoteExportPayload,
 	ParseDocumentPayload,
-} from "@runway/jobs/payloads";
+} from "./lib/jobPayloads";
 import { tasks } from "@trigger.dev/sdk";
 import { v } from "convex/values";
 

@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@chiemerieokorie/docling": "^0.3.0",
-    "@chiemerieokorie/trigger-kit": "^0.4.0",
+    "@chiemerieokorie/trigger-kit": "^0.2.0",
     "@trigger.dev/sdk": "^4.4.5",
     "zod": "catalog:"
   },

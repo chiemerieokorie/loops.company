@@ -1,6 +1,6 @@
 import type Stripe from "stripe";
 
-import { isPlanName, type PlanName } from "./plans.js";
+import { isPlanName, type PlanName } from "./plans";
 
 // Pure checkout config + param builders (no "use node", no ctx) — the Stripe
 // price→plan mapping and the embedded-session shape, unit-testable without a

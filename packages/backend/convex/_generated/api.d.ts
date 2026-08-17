@@ -36,6 +36,8 @@ import type * as prosemirror from "../prosemirror.js";
 import type * as resend from "../resend.js";
 import type * as sendEmails from "../sendEmails.js";
 import type * as session from "../session.js";
+import type * as slack from "../slack.js";
+import type * as slack_internal from "../slack/internal.js";
 import type * as stripe from "../stripe.js";
 import type * as userPreferences from "../userPreferences.js";
 
@@ -74,6 +76,8 @@ declare const fullApi: ApiFromModules<{
   resend: typeof resend;
   sendEmails: typeof sendEmails;
   session: typeof session;
+  slack: typeof slack;
+  "slack/internal": typeof slack_internal;
   stripe: typeof stripe;
   userPreferences: typeof userPreferences;
 }>;

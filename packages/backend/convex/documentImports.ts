@@ -1,4 +1,4 @@
-import { rawRef } from "@chiemerieokorie/trigger-kit/convex";
+import { rawRef } from "./lib/rawRef";
 import { ConvexError, v } from "convex/values";
 
 import { internal } from "./_generated/api";

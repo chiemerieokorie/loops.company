@@ -14,8 +14,6 @@
   "dependencies": {
     "@ai-sdk/openai": "3.0.74",
     "@better-auth/expo": "catalog:",
-    "@chiemerieokorie/trigger-kit": "^0.4.0",
-    "@runway/jobs": "workspace:*",
     "@trigger.dev/sdk": "^4.4.5",
     "@convex-dev/agent": "^0.6.4",
     "@convex-dev/better-auth": "catalog:",
