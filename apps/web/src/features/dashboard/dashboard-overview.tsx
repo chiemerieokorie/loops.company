@@ -21,6 +21,7 @@ import {
 	IconPlusMedium,
 } from "@runway/ui/icons";
 import { useConvexAuth, useQuery } from "convex/react";
+import type { Route } from "next";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 
@@ -52,7 +53,8 @@ export function DashboardOverview({
 		api.prosemirror.list,
 		isAuthenticated ? { workspaceId } : "skip"
 	);
-	const ws = `/${workspaceSlug}`;
+	const workspaceRoute = (path: string): Route =>
+		`/${workspaceSlug}${path}` as Route;
 
 	return (
 		<div className="flex flex-col gap-6">
@@ -71,25 +73,25 @@ export function DashboardOverview({
 					label="Notes"
 					used={entitlements?.usage.notes}
 				/>
-				<PlanTile plan={entitlements?.plan} ws={ws} />
+				<PlanTile plan={entitlements?.plan} workspaceRoute={workspaceRoute} />
 			</div>
 
 			<div className="grid gap-2 sm:grid-cols-3">
 				<ActionCard
 					description="Start a collaborative, real-time document."
-					href={`${ws}/documents`}
+					href={workspaceRoute("/documents")}
 					icon={IconPlusMedium}
 					title="New document"
 				/>
 				<ActionCard
 					description="Add people to your workspace and set roles."
-					href={`${ws}/members`}
+					href={workspaceRoute("/members")}
 					icon={IconPeople}
 					title="Invite teammates"
 				/>
 				<ActionCard
 					description="Draft, summarize, and answer with AI."
-					href={`${ws}/assistant`}
+					href={workspaceRoute("/assistant")}
 					icon={IconBubbleSparkle}
 					title="Ask the assistant"
 				/>
@@ -102,7 +104,7 @@ export function DashboardOverview({
 					</h3>
 					<Link
 						className="text-muted-foreground text-sm transition-colors hover:text-foreground"
-						href={`${ws}/documents`}
+						href={workspaceRoute("/documents")}
 					>
 						View all
 					</Link>
@@ -150,7 +152,13 @@ function StatTile({
 	);
 }
 
-function PlanTile({ plan, ws }: { plan?: string; ws: string }) {
+function PlanTile({
+	plan,
+	workspaceRoute,
+}: {
+	plan?: string;
+	workspaceRoute: (path: string) => Route;
+}) {
 	return (
 		<div className="flex flex-col gap-3 rounded-xl bg-muted p-4">
 			<div className="flex items-center justify-between">
@@ -170,7 +178,7 @@ function PlanTile({ plan, ws }: { plan?: string; ws: string }) {
 				<span className="font-medium text-foreground text-sm">Plan</span>
 				<Link
 					className="text-muted-foreground text-sm transition-colors hover:text-foreground"
-					href={`${ws}/billing`}
+					href={workspaceRoute("/billing")}
 				>
 					Manage billing
 				</Link>
@@ -185,7 +193,7 @@ function ActionCard({
 	title,
 	description,
 }: {
-	href: string;
+	href: Route;
 	icon: FC<CentralIconProps>;
 	title: string;
 	description: string;
@@ -232,7 +240,7 @@ function RecentDocuments({
 				<EmptyContent>
 					<Link
 						className={buttonVariants({ size: "sm" })}
-						href={`/${workspaceSlug}/documents`}
+						href={`/${workspaceSlug}/documents` as Route}
 					>
 						<IconPlusMedium />
 						New document
@@ -246,7 +254,7 @@ function RecentDocuments({
 			{documents.slice(0, RECENT_LIMIT).map((doc) => (
 				<Link
 					className="flex items-center gap-3 rounded-xl bg-muted px-3 py-2.5 transition-colors hover:bg-muted/60"
-					href={`/${workspaceSlug}/documents/${doc.docId}`}
+					href={`/${workspaceSlug}/documents/${doc.docId}` as Route}
 					key={doc.docId}
 				>
 					<span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-background text-muted-foreground">
