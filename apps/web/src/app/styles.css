@@ -1,0 +1,9 @@
+@import "tailwindcss";
+:root { background: #14161c; color: #fbfcfe; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-body), sans-serif; }
+.hero { min-height: 100svh; display: grid; place-items: center; overflow: hidden; position: relative; background: #14161c; }
+.orb { position: absolute; width: min(88vmin, 44rem); aspect-ratio: 1; }
+.content { z-index: 1; pointer-events: none; max-width: 38rem; padding: 2rem; text-align: center; }
+h1 { font-family: var(--font-display), sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 500; letter-spacing: -.07em; margin: 0; }
+p { font-size: 1.125rem; line-height: 1.6; margin: 1rem auto 0; max-width: 32rem; color: #c7c9d1; }
