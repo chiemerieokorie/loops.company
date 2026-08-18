@@ -4,7 +4,7 @@ import { Heading, Lead } from "@/features/landing/components/section";
 const sections = [
 	{
 		title: "Acceptance of terms",
-		body: `By accessing or using Runway ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the Service.
+		body: `By accessing or using Loops ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the Service.
 
 These Terms apply to all users, including free trial users, paid subscribers, and anyone accessing the Service on behalf of an organization.`,
 	},
@@ -12,7 +12,7 @@ These Terms apply to all users, including free trial users, paid subscribers, an
 		title: "Your account",
 		body: `You are responsible for maintaining the security of your account and for all activity that occurs under it. You must not share your credentials or allow others to access your account.
 
-You must provide accurate information when creating your account and keep it up to date. Runway reserves the right to suspend accounts with inaccurate or incomplete information.`,
+You must provide accurate information when creating your account and keep it up to date. Loops reserves the right to suspend accounts with inaccurate or incomplete information.`,
 	},
 	{
 		title: "Acceptable use",
@@ -26,7 +26,7 @@ You may cancel at any time. Cancellation takes effect at the end of the current 
 	},
 	{
 		title: "Intellectual property",
-		body: `Runway owns all intellectual property in the Service, including the platform and its software. These Terms do not grant you any ownership rights.
+		body: `Loops owns all intellectual property in the Service, including the platform and its software. These Terms do not grant you any ownership rights.
 
 You own your content and data. By using the Service you grant us a limited license to process your data solely to provide the Service to you. We do not claim ownership of your work.`,
 	},
@@ -52,7 +52,7 @@ TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR LIABILITY TO YOU FOR ANY CLAIMS ARIS
 	},
 	{
 		title: "Contact",
-		body: "Questions about these Terms? Email legal@runway.app.",
+		body: "Questions about these Terms? Email hello@loops.company.",
 	},
 ];
 
@@ -66,7 +66,7 @@ export default function TermsPage() {
 					</p>
 					<Heading>Terms of Service</Heading>
 					<Lead className="max-w-2xl text-lg">
-						Please read these terms carefully before using Runway. By using the
+						Please read these terms carefully before using Loops. By using the
 						service, you agree to be bound by them.
 					</Lead>
 				</div>

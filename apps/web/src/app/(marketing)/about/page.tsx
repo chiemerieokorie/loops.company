@@ -6,7 +6,6 @@ import {
 	Subheading,
 } from "@/features/landing/components/section";
 
-// Placeholder about page — swap this copy (and the team) for your own story.
 const values = [
 	{
 		name: "Craft",
@@ -27,14 +26,6 @@ const values = [
 		name: "Momentum",
 		description:
 			"We ship early and often, listen closely, and keep improving. Progress compounds.",
-	},
-];
-
-const team = [
-	{
-		name: "Your Name",
-		role: "Founder & CEO",
-		bio: "Introduce your team here — a sentence on who you are and why you're building this.",
 	},
 ];
 
@@ -74,10 +65,6 @@ export default function AboutPage() {
 							collaborative documents, shared notes, and an assistant that helps
 							you move faster — all in a workspace that's fast and easy to use.
 						</p>
-						<p>
-							This is placeholder copy for the starter template — replace it
-							with your product's story.
-						</p>
 					</div>
 				</Container>
 			</section>
@@ -94,28 +81,6 @@ export default function AboutPage() {
 								<p className="text-muted-foreground text-sm">
 									{value.description}
 								</p>
-							</div>
-						))}
-					</div>
-				</Container>
-			</section>
-
-			<Separator />
-
-			<section className="py-20">
-				<Container className="flex flex-col gap-16">
-					<Subheading>Team</Subheading>
-					<div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-						{team.map((person) => (
-							<div className="flex flex-col gap-3" key={person.name}>
-								<div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted font-display font-medium text-xl">
-									{person.name[0]}
-								</div>
-								<div>
-									<p className="font-medium text-foreground">{person.name}</p>
-									<p className="text-muted-foreground text-sm">{person.role}</p>
-								</div>
-								<p className="text-muted-foreground text-sm">{person.bio}</p>
 							</div>
 						))}
 					</div>

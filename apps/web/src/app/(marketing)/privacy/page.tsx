@@ -10,7 +10,7 @@ We also collect usage data automatically — including log data, device informat
 	},
 	{
 		title: "How we use your information",
-		body: `We use collected information to operate and improve Runway, process payments, send transactional and product communications, provide customer support, and comply with legal obligations.
+		body: `We use collected information to operate and improve Loops, process payments, send transactional and product communications, provide customer support, and comply with legal obligations.
 
 We do not sell your personal information to third parties. We do not use your content to train models or share it with other customers.`,
 	},
@@ -18,7 +18,7 @@ We do not sell your personal information to third parties. We do not use your co
 		title: "Data storage and security",
 		body: `Your data is stored on infrastructure provided by Convex and Vercel. We use industry-standard encryption in transit (TLS) and at rest (AES-256).
 
-Access to your data within Runway is scoped to your organization. Our team can access data for support and debugging purposes, and will always notify you before doing so unless legally prohibited.`,
+Access to your data within Loops is scoped to your organization. Our team can access data for support and debugging purposes, and will always notify you before doing so unless legally prohibited.`,
 	},
 	{
 		title: "Data retention",
@@ -34,7 +34,7 @@ You can disable cookies in your browser settings, but doing so will prevent you 
 	},
 	{
 		title: "Your rights",
-		body: `You have the right to access, correct, export, or delete your personal data at any time. Submit requests to privacy@runway.app. We will respond within 30 days.
+		body: `You have the right to access, correct, export, or delete your personal data at any time. Submit requests to hello@loops.company. We will respond within 30 days.
 
 For California residents (CCPA) and EU/UK residents (GDPR), additional rights apply. Contact us for details.`,
 	},
@@ -42,11 +42,11 @@ For California residents (CCPA) and EU/UK residents (GDPR), additional rights ap
 		title: "Changes to this policy",
 		body: `We may update this Privacy Policy from time to time. We will notify you of material changes by email or via an in-app notice at least 14 days before the change takes effect.
 
-Your continued use of Runway after a change takes effect constitutes your acceptance of the updated policy.`,
+Your continued use of Loops after a change takes effect constitutes your acceptance of the updated policy.`,
 	},
 	{
 		title: "Contact us",
-		body: "Questions about this policy or your data? Email us at privacy@runway.app. We aim to respond within 2 business days.",
+		body: "Questions about this policy or your data? Email us at hello@loops.company. We aim to respond within 2 business days.",
 	},
 ];
 
