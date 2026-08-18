@@ -9,23 +9,9 @@ import {
 const channels = [
 	{
 		name: "General",
-		email: "hello@runway.app",
-		description: "Product questions, partnerships, press inquiries.",
-	},
-	{
-		name: "Support",
-		email: "support@runway.app",
-		description: "Help with your account, billing, or technical issues.",
-	},
-	{
-		name: "Privacy",
-		email: "privacy@runway.app",
-		description: "Data requests, GDPR/CCPA, deletion requests.",
-	},
-	{
-		name: "Legal",
-		email: "legal@runway.app",
-		description: "Terms, contracts, compliance questions.",
+		email: "hello@loops.company",
+		description:
+			"Questions, partnerships, press — everything reaches the same inbox.",
 	},
 ];
 
@@ -48,7 +34,7 @@ export default function ContactPage() {
 			<Separator />
 
 			<section className="py-20">
-				<Container className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+				<Container className="grid grid-cols-1 gap-12">
 					{channels.map((channel) => (
 						<div className="flex flex-col gap-3" key={channel.name}>
 							<p className="font-medium text-foreground">{channel.name}</p>
@@ -73,8 +59,9 @@ export default function ContactPage() {
 					<Subheading>Based in the US</Subheading>
 					<div className="flex flex-col gap-4 text-muted-foreground">
 						<p>
-							Runway is a fully remote company. Our team works across US time
-							zones, so we're responsive from 8am ET to 8pm PT on business days.
+							The Loops Company of New York is a fully remote company. Our team
+							works across US time zones, so we're responsive from 8am ET to 8pm
+							PT on business days.
 						</p>
 						<p>
 							We don't have a physical office. If you're looking to meet in
