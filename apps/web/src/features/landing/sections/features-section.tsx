@@ -22,7 +22,7 @@ function FeatureCard({
 				<p className="text-muted-foreground text-sm">{description}</p>
 				<a
 					className="inline-flex items-center gap-1 font-medium text-foreground text-sm"
-					href="/signup"
+					href="/contact"
 				>
 					Learn more
 					<IconArrowRight className="size-4" />

@@ -26,9 +26,9 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-	title: "Loops",
+	title: "The Loops Company of New York",
 	description:
-		"Loops is a holding company that builds and operates focused software businesses.",
+		"The Loops Company of New York is a holding company that builds and operates focused software businesses.",
 };
 
 export default async function RootLayout({

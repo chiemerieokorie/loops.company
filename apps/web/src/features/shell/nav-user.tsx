@@ -86,7 +86,7 @@ export function NavUser() {
 						<DropdownMenuItem
 							onClick={() =>
 								authClient.signOut({
-									fetchOptions: { onSuccess: () => router.push("/login") },
+									fetchOptions: { onSuccess: () => router.push("/") },
 								})
 							}
 							variant="destructive"

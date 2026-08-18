@@ -32,7 +32,9 @@ export function HeroSection() {
 				</div>
 			</div>
 			<Container className="pointer-events-none relative z-10 flex flex-col items-center gap-6 py-24 text-center">
-				<Heading className="text-5xl sm:text-6xl">Loops</Heading>
+				<Heading className="text-5xl sm:text-6xl">
+					The Loops Company of New York
+				</Heading>
 				<Lead className="max-w-md text-pretty text-lg">
 					A holding company that builds and operates focused software
 					businesses.

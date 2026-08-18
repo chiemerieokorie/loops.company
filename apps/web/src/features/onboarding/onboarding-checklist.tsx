@@ -12,12 +12,13 @@ import {
 	IconRocket,
 } from "@runway/ui/icons";
 import { useConvexAuth, useMutation, useQuery } from "convex/react";
+import type { Route } from "next";
 import Link from "next/link";
 import type { FC } from "react";
 
 interface Step {
 	description: string;
-	href: string;
+	href: Route;
 	icon: FC<CentralIconProps>;
 	title: string;
 }
@@ -56,23 +57,23 @@ export function OnboardingChecklist({
 		return null;
 	}
 
-	const ws = `/${workspaceSlug}`;
+	const ws: `/${string}` = `/${workspaceSlug}`;
 	const steps: Step[] = [
 		{
 			description: "Start a collaborative, real-time document.",
-			href: `${ws}/documents`,
+			href: `${ws}/documents` as Route,
 			icon: IconFileText,
 			title: "Create your first document",
 		},
 		{
 			description: "Add teammates to your workspace and set roles.",
-			href: `${ws}/members`,
+			href: `${ws}/members` as Route,
 			icon: IconPeople,
 			title: "Invite your team",
 		},
 		{
 			description: "Draft, summarize, and answer with AI.",
-			href: `${ws}/assistant`,
+			href: `${ws}/assistant` as Route,
 			icon: IconBubbleSparkle,
 			title: "Meet the assistant",
 		},

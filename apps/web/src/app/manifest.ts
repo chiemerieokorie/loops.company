@@ -2,10 +2,11 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
-		name: "runway",
-		short_name: "runway",
-		description: "my pwa app",
-		start_url: "/new",
+		name: "The Loops Company of New York",
+		short_name: "Loops",
+		description:
+			"The Loops Company of New York is a holding company that builds and operates focused software businesses.",
+		start_url: "/",
 		display: "standalone",
 		background_color: "#ffffff",
 		theme_color: "#000000",

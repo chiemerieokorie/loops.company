@@ -96,7 +96,7 @@ export function PricingSection() {
 									size: "lg",
 									variant: plan.popular ? "default" : "secondary",
 								})}
-								href="/signup"
+								href="/contact"
 							>
 								Get started
 							</Link>

@@ -21,6 +21,7 @@ import {
 	IconPlusMedium,
 } from "@runway/ui/icons";
 import { useConvexAuth, useQuery } from "convex/react";
+import type { Route } from "next";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 
@@ -52,7 +53,7 @@ export function DashboardOverview({
 		api.prosemirror.list,
 		isAuthenticated ? { workspaceId } : "skip"
 	);
-	const ws = `/${workspaceSlug}`;
+	const ws: `/${string}` = `/${workspaceSlug}`;
 
 	return (
 		<div className="flex flex-col gap-6">
@@ -77,19 +78,19 @@ export function DashboardOverview({
 			<div className="grid gap-2 sm:grid-cols-3">
 				<ActionCard
 					description="Start a collaborative, real-time document."
-					href={`${ws}/documents`}
+					href={`${ws}/documents` as Route}
 					icon={IconPlusMedium}
 					title="New document"
 				/>
 				<ActionCard
 					description="Add people to your workspace and set roles."
-					href={`${ws}/members`}
+					href={`${ws}/members` as Route}
 					icon={IconPeople}
 					title="Invite teammates"
 				/>
 				<ActionCard
 					description="Draft, summarize, and answer with AI."
-					href={`${ws}/assistant`}
+					href={`${ws}/assistant` as Route}
 					icon={IconBubbleSparkle}
 					title="Ask the assistant"
 				/>
@@ -150,7 +151,7 @@ function StatTile({
 	);
 }
 
-function PlanTile({ plan, ws }: { plan?: string; ws: string }) {
+function PlanTile({ plan, ws }: { plan?: string; ws: `/${string}` }) {
 	return (
 		<div className="flex flex-col gap-3 rounded-xl bg-muted p-4">
 			<div className="flex items-center justify-between">
@@ -185,7 +186,7 @@ function ActionCard({
 	title,
 	description,
 }: {
-	href: string;
+	href: Route;
 	icon: FC<CentralIconProps>;
 	title: string;
 	description: string;
