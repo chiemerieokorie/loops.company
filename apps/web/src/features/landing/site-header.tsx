@@ -1,8 +1,11 @@
 import { buttonVariants } from "@runway/ui/components/button";
+import type { Route } from "next";
 import Link from "next/link";
 import { Container } from "./components/container";
 
-const navLinks = [{ href: "/about", label: "About" }];
+const navLinks: { href: Route; label: string }[] = [
+	{ href: "/about", label: "About" },
+];
 
 export function SiteHeader() {
 	return (
