@@ -64,7 +64,7 @@ export default function AcceptInvitationPage() {
 						size: "lg",
 						className: "mt-6 w-full justify-center",
 					})}
-					href="/login"
+					href="/"
 				>
 					Sign in to accept
 				</Link>

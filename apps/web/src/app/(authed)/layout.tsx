@@ -15,7 +15,7 @@ export default async function AuthedLayout({
 	children: ReactNode;
 }) {
 	if (!(await isAuthenticated())) {
-		redirect("/login");
+		redirect("/");
 	}
 
 	return children;

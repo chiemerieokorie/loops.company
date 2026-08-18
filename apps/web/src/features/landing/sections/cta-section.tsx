@@ -17,7 +17,7 @@ export function CtaSection() {
 						</Lead>
 					</div>
 					<div className="flex items-center gap-3">
-						<Link className={buttonVariants({ size: "lg" })} href="/signup">
+						<Link className={buttonVariants({ size: "lg" })} href="/contact">
 							Get started
 						</Link>
 						<Link
