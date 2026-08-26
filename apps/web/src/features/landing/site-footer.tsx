@@ -33,6 +33,14 @@ export function SiteFooter() {
 					<p>FIACA LLC</p>
 					<p>447 Broadway FL 2, New York, NY, US</p>
 					<p>(929) 693-6113</p>
+					<p>
+						<a
+							className="transition-colors hover:text-foreground"
+							href="mailto:hq@loops.company"
+						>
+							hq@loops.company
+						</a>
+					</p>
 				</div>
 			</Container>
 		</footer>
